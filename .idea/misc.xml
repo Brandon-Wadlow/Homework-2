@@ -5,6 +5,10 @@
       <map>
         <entry key="..\:/App class/TipCalculator/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/App class/TipCalculator/app/src/main/res/layout/activity_main2.xml" value="0.365625" />
+        <entry key="..\:/App class/TipCalculatorVertHoriz/app/src/main/res/layout-land/activity_main.xml" value="0.5447916666666667" />
+        <entry key="..\:/App class/TipCalculatorVertHoriz/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/App class/TipCalculatorVertHoriz/app/src/main/res/layout/activity_main_landscape.xml" value="0.365625" />
+        <entry key="..\:/App class/TipCalculatorVertHoriz/app/src/main/res/layout/orientation.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>

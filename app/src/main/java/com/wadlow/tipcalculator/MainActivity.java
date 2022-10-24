@@ -1,10 +1,12 @@
 package com.wadlow.tipcalculator;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
+        Log.w( "MainActivity", "Inside onCreate" );
         super.onCreate( savedInstanceState );
         tipCalc = new TipCalculator( 0.17f, 100.0f );
         setContentView( R.layout.activity_main );
+        Configuration config = getResources( ).getConfiguration( );
+        modifyLayout( config );
 
         billEditText = ( EditText ) findViewById( R.id.amount_bill );
         tipEditText = ( EditText ) findViewById( R.id.amount_tip_percent );
@@ -28,6 +33,20 @@ public class MainActivity extends AppCompatActivity {
         TextChangeHandler tch = new TextChangeHandler( );
         billEditText.addTextChangedListener( tch );
         tipEditText.addTextChangedListener(tch);
+    }
+
+    public void onConfigurationChanged( Configuration newConfig ) {
+        Log.w( "MainActivity", "Inside onConfigurationChanged" );
+        super.onConfigurationChanged( newConfig );
+        modifyLayout( newConfig );
+    }
+
+    public void modifyLayout( Configuration newConfig ) {
+        Log.w( "MainActivity", "Inside modifyLayout" );
+        if( newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE )
+            setContentView( R.layout.activity_main_landscape );
+        else if( newConfig.orientation == Configuration.ORIENTATION_PORTRAIT )
+            setContentView( R.layout.activity_main );
     }
 
     public void calculate( ) {
